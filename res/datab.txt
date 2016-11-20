@@ -1,0 +1,4 @@
+117--MONITOR--"ViewSonic VA2223WM"--01.11.2016--true--22--LCD
+122--SCANER--"SC NAME"--02.11.2016--true--true--true
+188--PRINTER--"PRINTER NAME"--02.11.2016--true--true
+617--MONITOR--"ViewSonic VA2223WM"--01.11.2016--true--22--LCD

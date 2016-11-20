@@ -1,0 +1,28 @@
+<project name="uchet1" default="final echo">
+	
+	<target name="clean">
+		<delete dir="build"/>
+	</target>
+	
+	<target name="compile" depends="clean">
+	    <mkdir dir="build/classes"/>	
+		<mkdir dir="build/jar"/>
+		<javac includeantruntime="false" srcdir="./src" destdir="build/classes"/>
+	</target>
+	
+
+	<target name="final echo" depends="compile">
+		<echo>meow</echo>
+		<jar destfile="build/jar/MyJarUchet.jar">
+			<fileset dir="build/classes">
+				<include name="**/*.class"/>
+			</fileset>
+			<manifest>
+						<attribute name="Main-Class" value="Uchet2.Uchet2Main"  />
+			</manifest>
+		</jar>
+		
+	</target>
+
+
+</project>
