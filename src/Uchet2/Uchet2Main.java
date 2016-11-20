@@ -5,6 +5,7 @@ import java.util.*;
 
 
 public class Uchet2Main {
+	//function to read file data base
     public static void readFile(String[] ArrayLikeSkuAndType) {
         Scanner forReadFile;
         try {
@@ -20,6 +21,7 @@ public class Uchet2Main {
         }
     }
 
+    //function to exit 
     public static void exitFromThis(String[] ArrayLikeSkuAndType) {
         try {
             Formatter x = new Formatter("res//datab.txt");
@@ -37,18 +39,18 @@ public class Uchet2Main {
 
     public static void main(String[] args) {
 
-
-        //System.out.println("Hello World");
-
-        String[] SkuAndType = new String[1000];
+        String[] SkuAndType = new String[1000];//create Array
         for (int i = 0; i < 1000; i++) {
             SkuAndType[i] = "empty";
         }
         readFile(SkuAndType);
         while (true) {
 
+        	//scanner of commands
             Scanner sc = new Scanner(System.in);
             String command;
+            
+            //exit
             command = sc.nextLine();
             if (command.equals("exit")) {
                 exitFromThis(SkuAndType);
@@ -56,6 +58,7 @@ public class Uchet2Main {
                 break;
             }
             String[] commandArray = command.split("--");
+            //add command
             if (commandArray[0].trim().equals("add")) {
                 String[] for2words = commandArray[2].trim().split(" ", 2);
 
@@ -92,6 +95,7 @@ public class Uchet2Main {
                         break;
                 }
             }
+            //delete command
             if (command.equals("delete")) {
                 System.out.println("Удалить все? введите yes");
                 String commandDel = sc.nextLine();
@@ -102,11 +106,13 @@ public class Uchet2Main {
                 }
             }
 
+            //delete sku
             if (commandArray[0].equals("delete") && !commandArray[1].equals(null)) {
                 String[] skuForDel = commandArray[1].split(" ");
                 SkuAndType[Integer.parseInt(skuForDel[1].trim())] = "empty";
             }
 
+            //list command
             if (command.equals("list")) {
                 for (int i = 0; i < 1000; i++) {
                     if (!SkuAndType[i].equals("empty")) {
